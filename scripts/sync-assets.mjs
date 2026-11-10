@@ -9,6 +9,15 @@ function checksum(bytes) {
   return createHash('sha256').update(bytes).digest('hex');
 }
 
+async function fetchAsset(path) {
+  const response = await fetch(new URL(path, origin), {
+    headers: { referer: origin, 'user-agent': 'Mozilla/5.0' },
+    signal: AbortSignal.timeout(180_000),
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return Buffer.from(await response.arrayBuffer());
+}
+
 async function syncAsset([path, expected]) {
   const destination = new URL(path, publicDirectory);
   const existing = await readFile(destination).catch((error) => {
@@ -17,13 +26,7 @@ async function syncAsset([path, expected]) {
   });
   if (existing && checksum(existing) === expected) return false;
 
-  const response = await fetch(new URL(path, origin), {
-    headers: { referer: origin, 'user-agent': 'Mozilla/5.0' },
-    signal: AbortSignal.timeout(45_000),
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-  const bytes = Buffer.from(await response.arrayBuffer());
+  const bytes = await fetchAsset(path).catch(() => fetchAsset(path));
   if (checksum(bytes) !== expected) throw new Error('SHA-256 checksum does not match the reference snapshot');
 
   const temporary = new URL(`${destination.href}.${process.pid}.download`);

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>adnauseum.ai — Maurice Moynihan</title>
+<meta name="description" content="adnauseum.ai: 44,297 award-show ads, sorted by how the idea works. Drop in a brief, get the closest ideas that already won. Founded by Maurice Moynihan.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maurice Moynihan">
+<meta property="og:title" content="adnauseum.ai — Maurice Moynihan">
+<meta property="og:description" content="44,297 ads that won, matched to whatever you're working on. No case study, no piano.">
+<meta property="og:url" content="https://mauricemoynihan.com/adnauseum">
+<meta property="og:image" content="https://mauricemoynihan.com/assets/og-folio-3nov.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="adnauseum.ai — Maurice Moynihan">
+<meta name="twitter:description" content="44,297 ads that won, matched to whatever you're working on. No case study, no piano.">
+<meta name="twitter:image" content="https://mauricemoynihan.com/assets/og-folio-3nov.jpg">
+<link rel="icon" href="assets/favicon-96.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1a00c197">
+
+
+
+<style>
+/* ============================================================
+   ADNAUSEUM — this page only. Everything is prefixed .adn- or scoped
+   under .case.adn so nothing here reaches the 21 other pages.
+   The product is shown as pictures of a product: the landing page sits
+   in a drawn browser frame (so it cannot be mistaken for a live form),
+   and the frame is one big link to the real thing. The walk-through is
+   three steps, each a short piece of text beside a crop of the product's
+   own cards. Crops are cut from a 2x capture of 6 Oct 2026.
+   9 Oct: second pass on his notes — "a mess of black copy on grey", the
+   step text "weirdly moves as you scroll" (it was position:sticky), the
+   archive crop "a broken mess, no padding". Every crop now sits on the
+   same plate (hairline box, paper, padded), the text no longer sticks,
+   the body copy is one size smaller than his opening line so the page
+   has a top, and the paragraph that repeated the screenshot is gone.
+   ============================================================ */
+
+/* ---- the opening: label, his line ---- */
+.case.adn > .adn-kicker{margin-top:clamp(1.6rem,4vh,3rem);}
+.case.adn > .aw-head{margin-top:0;}
+
+/* ---- the framed landing page: one link, drawn as a window ---- */
+.case.adn > .adn-frame{
+  /* style.css runs a case page's first figure edge to edge. Not this one: it
+     stays inside the measure so it is an object on the page, not the page. */
+  margin-inline:auto;width:auto;max-width:100%;margin-block-start:0;
+}
+.adn-frame__win{
+  display:block;text-decoration:none;color:var(--ink);
+  border:var(--hair);background:var(--paper);
+}
+.adn-frame__bar{
+  display:flex;align-items:center;gap:.4rem;
+  height:2.1rem;padding:0 .8rem;border-bottom:var(--hair);background:var(--bone);
+  position:relative;
+}
+.adn-frame__bar i{width:9px;height:9px;border:1.5px solid var(--ink);border-radius:50%;flex:none;}
+.adn-frame__url{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  white-space:nowrap;
+}
+.adn-frame__go{
+  margin-left:auto;font-family:var(--mono);font-size:.68rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;
+}
+.adn-frame__win img{display:block;width:100%;height:auto;}
+
+/* ⛳ 10 Oct: THE LANDING SHOT MOVES LIKE THE REAL SITE. His ask: "have the drop your brief spiral animate like it does
+   on the actual adnauseum site". The shot (frame-landing-live.webp) was taken with the spiral and the show-name strip
+   hidden; both are laid back over it live, in percentages of the shot so they scale with it. ⛳ Shot at 1728x990 (his
+   screen), logo and nav included, cropped under the show strip — his note: the 1100-wide shot had "way more white
+   space at the bottom than on the actual website" and no logo.
+   Spiral: the real site's own generator (SP 20, width 6 -> 12, 1200 box, .14, 4s a turn) — see the script below.
+   Dark ink at .14 over the black label leaves it black, so no blend mode (multiply tore the rotating layer).
+   Strip: one full cycle of the real ticker (crawl-strip.webp, 3427 css px at 2x) twice over, moved one copy in 154s —
+   the real site's speed. Edge fade 60px, as there. */
+.adn-live{position:relative;display:block;}
+.adn-live__spin{
+  position:absolute;left:26.910%;top:63.172%;width:46.181%;height:11.065%;
+  overflow:hidden;border-radius:1.629% / 12.26%;pointer-events:none;
+}
+.adn-live__spin svg{
+  position:absolute;left:-25.19%;top:50%;width:150.38%;height:auto;aspect-ratio:1;margin-top:-75.19%;
+  opacity:.14;animation:adn-portal 4s linear infinite;
+}
+.adn-live__spin path{fill:none;stroke:#0a0a0a;stroke-linecap:round;}
+@keyframes adn-portal{to{transform:rotate(360deg)}}
+.adn-live__crawl{
+  position:absolute;left:0;right:0;top:95.599%;height:2.192%;overflow:hidden;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3.47%,#000 96.53%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 3.47%,#000 96.53%,transparent);
+}
+.adn-live__strip{display:flex;height:100%;width:max-content;animation:adn-crawl 154s linear infinite;will-change:transform;}
+.adn-frame__win .adn-live__strip img{width:auto;height:100%;max-width:none;flex:none;}
+@keyframes adn-crawl{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.adn-live__spin svg,.adn-live__strip{animation:none;}}
+
+/* ⛳ 10 Oct: TWO MORE MOVES BORROWED FROM THE REAL SITE, both once, both caused by arriving at them.
+   Step 02: the closest ideas are dealt in the way adnauseum.ai deals its tiles (bpdeal: from 28px above and
+   transparent, .55s, 80ms apart). One screenshot, so the cards are clipped copies of it, cut at the gutter
+   midpoints (15 Oct: six on a desktop, two on a phone — the cuts are in the script).
+   Step 01: a reading light passes over the client's brief twice — the real site's "reading the brief"
+   sheen (bpsheen, 2.4s). Ink at both ends of the gradient, so it starts and finishes as plain type. */
+.adn-deal{position:relative;display:block;}
+.adn-deal__card{display:block;opacity:0;transform:translateY(-28px);}
+.adn-deal__card + .adn-deal__card{position:absolute;inset:0;}
+.adn-deal__card img,.adn-deal__card picture{display:block;width:100%;height:auto;}
+.adn-deal.is-dealt .adn-deal__card{animation:adn-deal .55s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*80ms);}
+@keyframes adn-deal{from{opacity:0;transform:translateY(-28px)}to{opacity:1;transform:none}}
+.adn-brief blockquote.is-reading{
+  background:linear-gradient(90deg,var(--ink) 0 40%,#b9b6ad 50%,var(--ink) 60% 100%) 100% 0/300% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:adn-read 2.4s linear 2 both;
+}
+@keyframes adn-read{to{background-position:0 0}}
+@media (hover:hover) and (pointer:fine){
+  .adn-frame__win:hover .adn-frame__bar{background:var(--ink);color:var(--bone);}
+  .adn-frame__win:hover .adn-frame__bar i{border-color:var(--bone);}
+}
+.adn-frame__win:focus-visible .adn-frame__bar{background:var(--ink);color:var(--bone);}
+.adn-frame__win:focus-visible .adn-frame__bar i{border-color:var(--bone);}
+/* the figure keeps the site's paper ground off: the window supplies its own */
+.case.adn .adn-frame{background:transparent;}
+
+/* ---- one caption, one place: a mono line under every picture ---- */
+.case.adn figcaption{border:0;padding:.6rem 0 0;}
+
+/* ---- four facts, ruled, like a spec sheet ---- */
+.adn-facts{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  border-top:var(--hair);border-bottom:var(--hair);
+}
+.adn-facts > div{padding:1rem 1.2rem 1rem 0;}
+.adn-facts > div + div{border-left:var(--hair);padding-left:1.2rem;}
+.adn-facts b{
+  display:block;font-weight:900;font-stretch:106%;letter-spacing:-.02em;
+  /* smaller than it was (3.1rem): the numbers are a spec sheet, not a
+     headline, and they were outranking his opening line */
+  font-size:clamp(1.7rem,2.4vw,2.3rem);line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.adn-facts .m{display:block;margin-top:.4rem;}
+
+/* ---- body copy on this page: one size under his opening line ----
+   .case p.body is 22.8px at his desk, the same as .aw-head above it, so the
+   page had no top and every paragraph weighed the same. 18px here, and a
+   measure of 34em, which is what makes the columns read as notes beside
+   pictures rather than as a wall. */
+.case.adn p.body{font-size:clamp(1rem,1.2vw,1.125rem);line-height:1.5;max-width:34em;}
+.case.adn .adn-intro{margin-block:clamp(1.6rem,4vh,2.6rem);}
+.case.adn .adn-intro p.body{margin:0;}
+
+/* ---- the section head for the walk-through ---- */
+.case.adn .adn-how{
+  border-top:var(--hair);padding-top:clamp(1.4rem,3.5vh,2.2rem);
+  margin-block:0 clamp(1.6rem,4vh,2.6rem);
+}
+.case.adn .adn-how .m{display:block;margin-bottom:.9rem;}
+.case.adn .adn-how .lede{margin:0;font-size:clamp(1.45rem,2.5vw,2.1rem);line-height:1.15;}
+
+/* ---- the three steps: notes on the left, pictures on the right ---- */
+.case.adn .adn-step{
+  display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+  gap:clamp(1.5rem,4vw,4rem);
+  border-top:var(--hair);padding-top:clamp(1.4rem,3.5vh,2.2rem);
+  margin-block:0 clamp(2rem,5vh,3.4rem);
+}
+/* 9 Oct: no position:sticky on the text. It read as the copy "weirdly
+   moving as you scroll". The notes sit at the top of their step and stay. */
+.adn-step__text{align-self:start;}
+.adn-step__text .adn-step__n{display:block;margin-bottom:.55rem;}
+.adn-step__text h3{
+  font-weight:900;font-stretch:106%;text-transform:uppercase;letter-spacing:-.01em;
+  font-size:clamp(1.15rem,1.4vw,1.3rem);line-height:1.1;margin:0 0 .85rem;
+}
+.case.adn .adn-step__text p.body{margin:0;}
+.case.adn .adn-step__text p.body + p.body{margin-top:.8rem;}
+.adn-step__media{display:grid;gap:clamp(1.4rem,2.6vw,2.2rem);align-content:start;}
+
+/* ---- the plate every crop sits on ----
+   The same box for all four: a hairline, paper inside, the crop inset by
+   one pad on every side. The archive crop used to sit flush with no edge at
+   all and read as broken; the others sat on their own ground and read as
+   three different treatments. Now there is one. */
+.case.adn .adn-shot{margin:0;background:transparent;}
+.adn-shot__plate{
+  display:block;border:var(--hair);background:var(--paper);
+  padding:clamp(.8rem,1.5vw,1.3rem);
+}
+.case.adn .adn-shot img{width:100%;height:auto;display:block;}
+/* the client's brief is set as text, not a picture of it: a picture of a paragraph can't be read on a phone */
+.adn-brief blockquote{margin:0;padding:clamp(.6rem,2vw,1.6rem) clamp(.2rem,5vw,4.5rem);text-align:center;
+  font-size:clamp(.9rem,1vw,1rem);line-height:1.5;text-wrap:balance;}
+
+/* ---- the end: the one place the link is set large ---- */
+.adn-close{border-top:var(--hair);padding-top:clamp(1.4rem,3.5vh,2.2rem);}
+.case.adn .adn-close .lede{margin:0 0 .8rem;font-size:clamp(1.45rem,2.5vw,2.1rem);line-height:1.15;}
+/* one line at his desk; balanced if it has to wrap, so no one-word last line */
+.case.adn .adn-close p.body{margin:0;max-width:48em;text-wrap:balance;}
+.adn-go{
+  display:inline-block;margin-top:1.4rem;text-decoration:none;
+  font-weight:900;font-stretch:106%;text-transform:uppercase;letter-spacing:-.01em;
+  font-size:clamp(1.5rem,3vw,2.6rem);line-height:1;
+  border-bottom:3px solid var(--ink);padding-bottom:.08em;
+}
+@media (hover:hover) and (pointer:fine){.adn-go:hover{background:var(--ink);color:var(--bone);border-color:var(--ink);}}
+
+/* ---- phones ---- */
+@media (max-width:860px){
+  .case.adn .adn-step{grid-template-columns:1fr;gap:1.3rem;}
+}
+@media (max-width:700px){
+  .adn-facts{grid-template-columns:1fr 1fr;}
+  .adn-facts > div{padding:.9rem 0;}
+  .adn-facts > div + div{border-left:0;padding-left:0;}
+  .adn-facts > div:nth-child(even){border-left:var(--hair);padding-left:1rem;}
+  .adn-facts > div:nth-child(n+3){border-top:var(--hair);}
+  .adn-frame__go{display:none;}
+  .adn-shot__plate{padding:.7rem;}
+  .adn-step__media{gap:1.4rem;}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#case">Skip to the content</a>
+
+<header class="nav">
+  <a class="nav__mark" href="index.html" aria-label="Maurice Moynihan, home"><canvas class="mark" width="298" height="160" aria-hidden="true"></canvas></a>
+  <nav aria-label="Site">
+    <ul>
+      <li><a href="advertising.html">Advertising</a></li>
+      <li><a href="adnauseum.html" aria-current="page">adnauseum.ai</a></li>
+      <li><a href="music.html">Music</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav__hidden"><a href="/canethetoad" aria-label="Cane the Toad"><svg class="nav-icon" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 29.35 3.23 C 29.98 3.17 30.48 3.22 30.91 3.37 C 31.35 3.52 31.69 3.84 31.97 4.12 C 32.25 4.41 32.40 4.62 32.58 5.10 C 32.75 5.58 32.88 6.57 33.02 7.01 C 33.16 7.46 32.86 7.25 33.44 7.78 C 34.02 8.32 35.71 9.57 36.49 10.23 C 37.26 10.90 37.66 11.32 38.07 11.79 C 38.47 12.25 38.54 12.31 38.94 13.00 C 39.33 13.69 40.01 15.18 40.44 15.94 C 40.87 16.71 41.04 16.96 41.50 17.58 C 41.96 18.20 42.58 19.02 43.20 19.67 C 43.82 20.32 44.62 20.87 45.22 21.47 C 45.81 22.08 45.76 21.75 46.77 23.29 C 47.77 24.84 50.04 28.69 51.24 30.75 C 52.43 32.82 53.20 33.86 53.94 35.68 C 54.66 37.50 55.21 40.54 55.60 41.67 C 56.00 42.79 55.56 41.83 56.31 42.42 C 57.06 43.00 59.28 44.47 60.10 45.15 C 60.93 45.84 61.02 46.08 61.27 46.49 C 61.53 46.90 61.53 46.99 61.65 47.62 C 61.77 48.24 61.96 49.48 62.00 50.24 C 62.04 51.00 62.03 51.65 61.86 52.17 C 61.68 52.69 61.49 52.99 60.96 53.36 C 60.42 53.74 59.08 54.17 58.63 54.42 C 58.18 54.67 57.97 54.15 58.27 54.85 C 58.58 55.54 60.07 57.81 60.46 58.58 C 60.84 59.35 60.60 59.23 60.55 59.47 C 60.51 59.70 60.34 59.91 60.18 60.00 C 60.02 60.09 59.90 60.13 59.60 60.01 C 59.31 59.89 58.71 59.43 58.40 59.28 C 58.09 59.14 57.94 59.13 57.73 59.15 C 57.54 59.17 57.45 59.19 57.20 59.40 C 56.95 59.61 56.48 60.21 56.22 60.40 C 55.96 60.60 55.96 60.69 55.65 60.58 C 55.33 60.48 54.82 59.88 54.34 59.79 C 53.86 59.69 53.31 60.06 52.78 60.02 C 52.25 59.98 51.87 59.67 51.14 59.53 C 50.41 59.41 49.20 59.13 48.42 59.23 C 47.62 59.34 46.93 59.97 46.41 60.17 C 45.90 60.37 46.35 60.39 45.33 60.43 C 44.31 60.48 41.88 60.38 40.26 60.44 C 38.64 60.49 36.80 60.87 35.62 60.77 C 34.45 60.67 34.42 59.96 33.19 59.85 C 31.96 59.74 29.33 60.27 28.24 60.10 C 27.16 59.94 27.48 59.11 26.66 58.84 C 25.84 58.56 24.25 58.60 23.31 58.46 C 22.36 58.32 21.45 58.02 21.01 57.96 C 20.57 57.90 20.74 57.91 20.66 58.10 C 20.58 58.29 20.60 58.90 20.52 59.11 C 20.43 59.34 20.56 59.40 20.13 59.43 C 19.71 59.45 18.88 59.27 17.95 59.26 C 17.03 59.25 15.49 59.22 14.60 59.37 C 13.71 59.52 13.47 60.12 12.63 60.13 C 11.79 60.15 11.13 59.55 9.55 59.46 C 7.98 59.37 4.39 59.58 3.21 59.58 C 2.02 59.58 2.67 59.53 2.47 59.46 C 2.28 59.38 2.13 59.27 2.05 59.12 C 1.98 58.96 1.95 58.72 2.00 58.54 C 2.05 58.36 1.96 58.24 2.34 58.05 C 2.71 57.85 3.87 57.56 4.26 57.37 C 4.65 57.17 4.66 57.41 4.68 56.87 C 4.71 56.34 4.47 55.22 4.41 54.15 C 4.36 53.08 4.29 51.74 4.35 50.46 C 4.41 49.18 4.60 47.69 4.77 46.47 C 4.93 45.25 5.10 44.19 5.35 43.15 C 5.60 42.12 5.75 41.42 6.27 40.26 C 6.78 39.10 7.89 37.80 8.43 36.21 C 8.98 34.62 9.06 32.30 9.53 30.72 C 10.00 29.14 11.01 27.57 11.26 26.73 C 11.51 25.89 11.30 26.15 11.04 25.69 C 10.78 25.23 10.17 24.63 9.71 23.96 C 9.25 23.29 8.65 22.37 8.30 21.67 C 7.96 20.98 7.75 20.31 7.65 19.78 C 7.54 19.24 7.60 18.99 7.66 18.47 C 7.73 17.95 7.70 17.69 8.04 16.65 C 8.37 15.60 9.42 13.10 9.67 12.20 C 9.93 11.30 9.76 11.80 9.57 11.24 C 9.37 10.69 8.67 9.41 8.50 8.86 C 8.32 8.32 8.45 8.28 8.50 7.97 C 8.56 7.66 8.51 7.60 8.82 7.03 C 9.12 6.46 9.92 5.07 10.34 4.56 C 10.76 4.05 10.81 4.04 11.34 3.97 C 11.87 3.90 12.69 3.88 13.51 4.12 C 14.34 4.35 15.54 5.14 16.31 5.39 C 17.08 5.64 17.40 5.66 18.15 5.64 C 18.90 5.62 19.82 5.34 20.80 5.28 C 21.79 5.21 23.02 5.52 24.09 5.26 C 25.15 5.00 26.31 4.07 27.19 3.73 C 28.06 3.39 28.74 3.29 29.35 3.23Z M 11.82 50.69 C 12.17 50.88 13.29 51.94 13.62 52.27 C 13.95 52.60 14.15 52.40 13.81 52.65 C 13.46 52.91 12.00 53.66 11.55 53.81 C 11.11 53.96 11.25 53.67 11.16 53.55 C 11.07 53.43 10.96 53.47 11.02 53.08 C 11.09 52.68 11.40 51.57 11.53 51.17 C 11.66 50.77 11.47 50.50 11.82 50.69Z"/></svg></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1 class="vh case-title">adnauseum.ai</h1>
+  
+
+  <article class="case adn" id="case">
+    
+    <span class="m m--soft aw-eyebrow adn-kicker">A thing I made</span>
+    <p class="aw-head">Every ad that&rsquo;s won anything in the last sixty years, sorted by what the idea actually does. I built it because I was sick of pretending I&rsquo;d seen them&nbsp;all.</p>
+    <figure class="adn-frame">
+      <a class="adn-frame__win" href="https://adnauseum.ai" rel="noopener">
+        <span class="adn-frame__bar" aria-hidden="true"><i></i><i></i><i></i><span class="adn-frame__url">adnauseum.ai</span><span class="adn-frame__go">Open the site &rarr;</span></span>
+        <span class="adn-live">
+          <img src="assets/adnauseum-shots/frame-landing-live.webp?v=1028" alt="adnauseum.ai: It&rsquo;s not stealing if they put it in an award annual. 44,297 ads that won, matched to whatever you&rsquo;re working on. A field to drop your brief in." width="2592" height="1437" decoding="async">
+          <span class="adn-live__spin" aria-hidden="true"></span>
+          <span class="adn-live__crawl" aria-hidden="true"><span class="adn-live__strip"><img src="assets/adnauseum-shots/crawl-strip.webp" alt="" width="6854" height="42"><img src="assets/adnauseum-shots/crawl-strip.webp" alt="" width="6854" height="42"></span></span>
+        </span>
+      </a>
+      <figcaption class="m m--soft">The landing page, 28 October 2026. The picture is a link.</figcaption>
+    </figure>
+
+    <div class="adn-facts" aria-label="adnauseum.ai in numbers">
+      <div><b>44,297</b><span class="m m--soft">ads that won</span></div>
+      <div><b>19</b><span class="m m--soft">award shows</span></div>
+      <div><b>60</b><span class="m m--soft">years of winners</span></div>
+      <div><b>57</b><span class="m m--soft">moves</span></div>
+    </div>
+
+    
+    <div class="adn-intro">
+      <p class="body">Every archive of award-winning work is sorted the way the shows sort
+      it &mdash; by year, by category, by who entered. Which is useless at four in the
+      afternoon with a brief in front of you, because the one thing you want to search by
+      is the one thing nobody records: what the idea actually <em>does</em>. adnauseum is
+      sorted by&nbsp;that.</p>
+    </div>
+
+    <div class="adn-how">
+      <span class="m m--soft">How it works</span>
+      <h2 class="lede">You put a brief in. It hands back the closest ideas that already won.</h2>
+    </div>
+
+    <section class="adn-step" aria-labelledby="step1">
+      <div class="adn-step__text">
+        <span class="m m--soft adn-step__n">01</span>
+        <h3 id="step1">The brief</h3>
+        <p class="body">This is the site&rsquo;s own worked example: a brief to advertise dental floss. The brief as the client wrote it, then the brief as adnauseum read&nbsp;it.</p>
+      </div>
+      <div class="adn-step__media">
+        <figure class="adn-shot">
+          <span class="adn-shot__plate adn-brief"><blockquote>&ldquo;Dental floss. Everyone tells the dentist they floss. Nobody does, and the dentist can tell. They brush, feel done, and can&rsquo;t face two more minutes before bed. Nothing bad happens for years. Get the packet in the drawer used up. No tooth with a face.&rdquo;</blockquote></span>
+          <figcaption class="m m--soft">The brief</figcaption>
+        </figure>
+        <figure class="adn-shot">
+          <span class="adn-shot__plate"><img src="assets/adnauseum-shots/brief-read.webp?v=1028" alt="The brief as adnauseum reads it: dental floss. The insight: everyone tells the dentist they floss; nobody does, and the dentist can tell. The full read folds away underneath." width="2080" height="560" loading="lazy" decoding="async"></span>
+          <figcaption class="m m--soft">The brief, as it reads it</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="adn-step" aria-labelledby="step2">
+      <div class="adn-step__text">
+        <span class="m m--soft adn-step__n">02</span>
+        <h3 id="step2">The closest ideas to your brief</h3>
+        <p class="body">Not an answer, and not a concept with your client&rsquo;s logo on it.
+        The ads in the archive that came at a problem like yours, closest first, each one
+        filed under the move it made &mdash; so you can see a route has legs before you spend
+        a week on it. What you do with them is still your problem.</p>
+      </div>
+      <div class="adn-step__media">
+        <figure class="adn-shot">
+          <span class="adn-shot__plate"><picture>
+            <source media="(max-width:700px)" srcset="assets/adnauseum-shots/ideas-two.webp?v=1028" width="780" height="2666">
+            <img src="assets/adnauseum-shots/ideas-six.webp?v=1028" alt="The closest ideas to the brief, closest first, each tagged with its move: UNIASSELVI&rsquo;s Scholarship in Books, Surf Life Saving Queensland&rsquo;s Life-Fi, Dreams Inc.&rsquo;s 30SOAP, Truth&rsquo;s #CATmageddon, Lifebuoy&rsquo;s Jump Pump and Head &amp; Shoulders&rsquo; The Chase." width="2104" height="2696" decoding="async">
+          </picture></span>
+          <figcaption class="m m--soft">Closest first, pointed at this brief</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="adn-step" aria-labelledby="step3">
+      <div class="adn-step__text">
+        <span class="m m--soft adn-step__n">03</span>
+        <h3 id="step3">Every ad, filed by move</h3>
+        <p class="body">It is for the people who already know the work. The archive does not
+        explain the joke, rank the agencies or tell you what won in Cannes this year. It
+        reduces 44,297 ads to the idea and then gets out of the way.</p>
+      </div>
+      <div class="adn-step__media">
+        <figure class="adn-shot">
+          <span class="adn-shot__plate"><picture>
+            <source media="(max-width:700px)" srcset="assets/adnauseum-shots/archive-rows-phone.webp?v=1028" width="780" height="3092">
+            <img src="assets/adnauseum-shots/archive-rows.webp?v=1028" alt="Three moves from the archive, each with the ads that use it: make the number physical, let the ad prove it, find the accidental lookalike." width="2360" height="1558" loading="lazy" decoding="async">
+          </picture></span>
+          <figcaption class="m m--soft">Three of the 57 moves</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="adn-close">
+      <h2 class="lede">Go and have a look.</h2>
+      <p class="body">It is live, and it will take you about eleven seconds to work out
+      whether it is for you. <a href="https://www.adnews.com.au/news/melbourne-creative-launches-adnauseum-to-put-award-winning-thinking-on-tap" rel="noopener">AdNews wrote it up</a>, if you&rsquo;d rather hear it from someone else.</p>
+      <a class="adn-go" href="https://adnauseum.ai" rel="noopener">adnauseum.ai &rarr;</a>
+    </div>
+
+  </article>
+
+  <nav class="case-next" aria-label="Page navigation">
+    <a href="index.html">&larr; Back to the index</a>
+  </nav>
+</main>
+
+<script>
+/* The adnauseum.ai drop-box spiral, drawn by the same rule as the real site (ADNAUSEUM/public/index.html, "THE
+   PORTAL"): an Archimedean arm r = SP*theta/2pi, sampled every 8px of arc, stroked in short overlapping pieces so the
+   width can taper from W0 at the eye to W1 at the rim. Keep these numbers in step with the real site. */
+(function(){
+  var box=document.querySelector('.adn-live__spin'); if(!box) return;
+  var SP=20, R=600, W0=6, W1=12, TAU=6.283185, STEPPX=8, CHUNK=40, ns='http://www.w3.org/2000/svg';
+  var svg=document.createElementNS(ns,'svg');
+  svg.setAttribute('viewBox',-R+' '+-R+' '+(R*2)+' '+(R*2));
+  var pts=[], th=0, r;
+  for(;;){ r=SP*th/TAU; if(r>R) break; pts.push([r*Math.cos(th),r*Math.sin(th),r]); th+=Math.min(TAU/36,STEPPX/Math.max(r,1)); }
+  for(var i0=0;i0<pts.length-1;i0+=CHUNK){
+    var i1=Math.min(i0+CHUNK,pts.length-1), d='';
+    for(var i=i0;i<=i1;i++) d+=(i===i0?'M':'L')+pts[i][0].toFixed(1)+','+pts[i][1].toFixed(1);
+    var path=document.createElementNS(ns,'path');
+    path.setAttribute('d',d);
+    path.setAttribute('stroke-width',(W0+(W1-W0)*Math.min(pts[(i0+i1)>>1][2]/R,1)).toFixed(2));
+    svg.appendChild(path);
+  }
+  box.appendChild(svg);
+})();
+</script>
+<script>
+/* Step 02 deal and step 01 reading light — see the CSS note "TWO MORE MOVES". Each plays once: the reading light
+   when a third of the brief is on screen, the deal as soon as the plate comes in. Nothing happens with motion turned
+   off, and without JS the shots simply sit there. */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches || !('IntersectionObserver' in window)) return;
+  function once(el,fn){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ io.disconnect(); fn(); } }); },{threshold:.33});
+    io.observe(el);
+  }
+  /* 15 Oct: the six closest ideas (desktop, two rows of three) or the first two (phone, stacked), each card a clipped
+     copy of the one picture, cut at the gutters measured on the shot. The copies are clones of the whole <picture>,
+     so a phone clones the phone shot. ⛔ Phone audit: the old deal waited for a third of the plate to be on screen, so
+     a phone sat on ~970px of empty white box mid-scroll. Now the cards are only hidden while the plate is wholly below
+     the screen, and the deal starts 100px before the first pixel is in; already on screen (or above) at load = shown as-is. */
+  var pic=document.querySelector('img[src*="ideas-six.webp"]');
+  if(pic){
+    var plate=pic.closest('.adn-shot__plate'), picture=pic.closest('picture');
+    var wide=window.matchMedia('(min-width:701px)').matches;
+    /* 17 Oct: re-measured on the new shots (the fully white gutters: rows at 51.467%, columns at 33.151% / 66.801%;
+       phone at 52.431%, under the first card and above the second card's move tab) */
+    /* 28 Oct: re-measured on the dental-floss shots (white gutters: row 50.43%, columns 33.17% / 66.83%; phone 50.45%) */
+    var CUTS=wide?['inset(0 66.83% 49.57% 0)','inset(0 33.17% 49.57% 33.17%)','inset(0 0 49.57% 66.83%)',
+                   'inset(50.43% 66.83% 0 0)','inset(50.43% 33.17% 0 33.17%)','inset(50.43% 0 0 66.83%)']
+                 :['inset(0 0 49.55% 0)','inset(50.45% 0 0 0)'];
+    if(plate.getBoundingClientRect().top < window.innerHeight){ /* on screen or passed already: leave it be */ }
+    else {
+      var deal=document.createElement('span'); deal.className='adn-deal';
+      plate.insertBefore(deal,picture);
+      CUTS.forEach(function(cut,i){
+        var card=document.createElement('span'); card.className='adn-deal__card'; card.style.setProperty('--i',i);
+        if(i===0) card.appendChild(picture);
+        else { var cp=picture.cloneNode(true); var ci=cp.querySelector('img'); ci.alt=''; ci.removeAttribute('loading'); card.appendChild(cp); }
+        card.style.clipPath=cut;
+        deal.appendChild(card);
+      });
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting||e.boundingClientRect.top<0){ io.disconnect(); deal.classList.add('is-dealt'); } }); },{threshold:0,rootMargin:'0px 0px 100px 0px'});
+      io.observe(deal);
+    }
+  }
+  var brief=document.querySelector('.adn-brief blockquote');
+  if(brief){
+    once(brief,function(){ brief.classList.add('is-reading'); });
+    brief.addEventListener('animationend',function(){ brief.classList.remove('is-reading'); });
+  }
+})();
+</script>
+<script src="mark.js?v=343e1ca6" defer></script>
+
+</body>
+</html>

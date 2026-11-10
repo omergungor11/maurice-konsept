@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music — Maurice Moynihan</title>
+<meta name="description" content="Maurice Moynihan records under the monikers Venom Elite and Moy. First full-length album, nearly finished.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maurice Moynihan">
+<meta property="og:title" content="Music — Maurice Moynihan">
+<meta property="og:description" content="Venom Elite. Moy. First full-length album, nearly finished.">
+<meta property="og:url" content="https://mauricemoynihan.com/music.html">
+<meta property="og:image" content="https://mauricemoynihan.com/assets/og-folio-3nov.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Music — Maurice Moynihan">
+<meta name="twitter:description" content="Venom Elite. Moy. First full-length album, nearly finished.">
+<meta name="twitter:image" content="https://mauricemoynihan.com/assets/og-folio-3nov.jpg">
+<link rel="icon" href="assets/favicon-96.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1a00c197">
+
+
+
+<style>
+/* ---- the album as a toy version of a Pro Tools edit window. Thick ink, chunky, presses back. ---- */
+.daw-lede{max-width:min(44rem,40vw);margin-bottom:clamp(1.6rem,4vh,2.6rem);}
+/* the bar PA: two long boxes on one bar, hung from the line under the menu as
+   if it were the ceiling; the left box pumps to the left channel, the right
+   box to the right */
+.pa{position:absolute;right:calc(var(--pad) + 1vw);top:0;width:clamp(18rem,48vw,42rem);pointer-events:none;transform-origin:50% 0;will-change:transform;}
+.pa__img{display:block;width:100%;height:auto;}
+.spk__cone{position:absolute;height:auto;transform-origin:50% 50%;will-change:transform;}
+@media (max-width:760px){
+  .pa{width:13.5rem;right:.9rem;}
+  .daw-lede{max-width:none;}
+}}}}
+.daw-lede a{color:inherit;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.16em;}
+/* until someone touches it, the machine asks: the clock blinks PRESS PLAY and the play key throbs */
+.daw__win.idle .daw__time{animation:lcd 1.1s steps(1) infinite;}
+@keyframes lcd{50%{opacity:.25;}}
+.daw__win.idle .key--play{animation:throb 1.1s ease-in-out infinite;}
+@keyframes throb{50%{background:#8af59a;box-shadow:0 4px 0 var(--ink),0 0 0 6px rgba(85,209,106,.35);}}
+@media (prefers-reduced-motion:reduce){.daw__win.idle .daw__time,.daw__win.idle .key--play{animation:none;}}
+.daw{margin:0;position:relative;--o:2.5px solid var(--ink);--win:#3b3b41;--lane:#2d2d32;--well:#141416;}
+.daw__win{border:var(--o);border-radius:16px;background:var(--win);color:#eee;position:relative;overflow:hidden;
+  box-shadow:8px 8px 0 var(--ink);user-select:none;-webkit-user-select:none;}
+.daw__bar{display:flex;align-items:center;gap:8px;height:2.6rem;padding:0 1rem;background:#2a2a2e;border-bottom:var(--o);position:relative;}
+.daw__bar i{width:14px;height:14px;border-radius:50%;border:2px solid var(--ink);background:#ff5f57;flex:none;}
+.daw__bar i:nth-child(2){background:#febc2e;}.daw__bar i:nth-child(3){background:#28c840;}
+.daw__file{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:800;font-size:.84rem;letter-spacing:.02em;white-space:nowrap;}
+
+/* top: big keys, clock, meters */
+.daw__top{display:flex;align-items:center;gap:1.2rem;padding:1rem;border-bottom:var(--o);flex-wrap:wrap;}
+.daw__transport{display:flex;gap:.5rem;}
+.key{width:3.3rem;height:3.1rem;border:var(--o);border-radius:10px;background:#d9d9de;color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0;
+  box-shadow:0 4px 0 var(--ink);transform:translateY(0);transition:transform .06s,box-shadow .06s;}
+.key svg{width:1.15rem;height:1.15rem;}
+.key:active,.key.down{transform:translateY(4px);box-shadow:0 0 0 var(--ink);}
+.key--play{background:#55d16a;width:4.4rem;}
+.key--play.on{background:#8af59a;transform:translateY(4px);box-shadow:0 0 0 var(--ink);}
+.key--rec{background:#ff5a4e;color:#fff;}
+.key:focus-visible{outline:3px solid #febc2e;outline-offset:2px;}
+.daw__clock{background:var(--well);border:var(--o);border-radius:12px;padding:.45rem 1rem;display:flex;align-items:center;gap:.9rem;box-shadow:inset 0 3px 0 rgba(0,0,0,.6);}
+.daw__time{font-family:var(--mono);font-weight:700;font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1;color:#8ff0a1;font-variant-numeric:tabular-nums;text-shadow:0 0 12px rgba(143,240,161,.35);}
+.daw__clock small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#9a9aa2;line-height:1.5;}
+.daw__clock small b{color:#eee;font-weight:700;}
+.daw__meters{margin-left:auto;display:flex;gap:1.1rem;align-items:center;}
+.meter{display:flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.12em;}
+.meter__blocks{display:flex;gap:3px;padding:3px;border:var(--o);border-radius:6px;background:var(--well);}
+.meter__blocks u{width:7px;height:16px;border-radius:2px;background:#2b2b30;text-decoration:none;}
+.meter__blocks u.g{background:#55d16a;}.meter__blocks u.y{background:#febc2e;}.meter__blocks u.r{background:#ff5a4e;}
+
+.trk{display:grid;grid-template-columns:var(--hd,13.5rem) minmax(0,1fr);}
+
+/* tracks */
+#daw-tracks{background:var(--lane);padding:.35rem 0;}
+.trk{height:var(--th,5.2rem);cursor:pointer;}
+.trk__hd{padding:.45rem .7rem;display:flex;align-items:center;border-right:var(--o);}
+.trk__tag{width:100%;background:var(--c);color:var(--ink);border:var(--o);border-radius:10px;padding:.4rem .6rem;box-shadow:0 3px 0 var(--ink);
+  transition:transform .12s,box-shadow .12s;}
+.trk__name{display:block;font-weight:800;font-size:.95rem;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.trk__sub{display:block;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.08em;opacity:.75;}
+.trk__lane{position:relative;padding:.45rem .9rem .45rem .7rem;}
+.clip{position:absolute;top:.45rem;bottom:.45rem;left:.7rem;border:var(--o);border-radius:12px;background:var(--c);overflow:hidden;
+  box-shadow:0 3px 0 var(--ink);transition:transform .12s,box-shadow .12s;display:flex;flex-direction:column;}
+.clip__name{font-family:var(--mono);font-size:.6rem;font-weight:700;color:var(--ink);padding:.15rem .5rem;border-bottom:2px solid var(--ink);background:rgba(255,255,255,.35);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:none;}
+.clip canvas{display:block;width:100%;flex:1;min-height:0;}
+@media (hover:hover){
+  .trk:not(.off):hover .clip,.trk:not(.off):hover .trk__tag{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink);}
+}
+.trk.sel .clip,.trk.sel .trk__tag{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink);}
+.trk.sel .trk__tag::after{content:"\25B6  playing";display:block;font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:.1rem;}
+.trk.sel.paused .trk__tag::after{content:"\2759\2759  paused";}
+.trk.sel .trk__sub{display:none;}
+.daw__head{position:absolute;top:.1rem;bottom:.1rem;width:3px;margin-left:-1.5px;background:var(--ink);pointer-events:none;display:none;z-index:2;border-radius:2px;}
+.daw__head::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top:9px solid var(--ink);border-bottom:0;}
+.trk.sel .daw__head{display:block;}
+.trk.off{cursor:pointer;}
+.trk.off .trk__tag{background:#5a5a62;color:#c8c8cf;border-style:dashed;box-shadow:none;}
+.trk.off .clip{background:#4a4a52;border-style:dashed;box-shadow:none;}
+.trk.off .clip__name{color:#c8c8cf;border-bottom-style:dashed;background:transparent;}
+.trk.off.shake .clip{animation:shake .4s;}
+@keyframes shake{20%{transform:translateX(-4px) rotate(-2deg);}40%{transform:translateX(4px) rotate(2deg);}60%{transform:translateX(-3px);}80%{transform:translateX(2px);}}
+
+/* the alert */
+.daw__alert{position:absolute;left:50%;top:50%;width:min(26rem,90%);background:#fff;color:var(--ink);border:var(--o);border-radius:14px;box-shadow:8px 8px 0 var(--ink);
+  display:none;z-index:5;padding:1.2rem;transform:translate(-50%,-50%) rotate(-1.5deg);}
+.daw__alert.show{display:grid;grid-template-columns:3rem 1fr;column-gap:.9rem;animation:pop .22s cubic-bezier(.3,1.6,.6,1);}
+@keyframes pop{from{transform:translate(-50%,-50%) rotate(-1.5deg) scale(.6);opacity:0;}}
+.daw__alert svg{width:3rem;height:3rem;}
+.daw__alert p{font-size:1rem;line-height:1.35;font-weight:600;}
+.daw__alert small{display:block;font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);margin-top:.35rem;}
+.daw__alert div{grid-column:1 / -1;display:flex;justify-content:flex-end;margin-top:1rem;}
+.daw__alert button{font-family:var(--mono);font-size:.75rem;font-weight:700;letter-spacing:.14em;border:var(--o);border-radius:8px;background:#5b8def;color:#fff;padding:.5rem 1.6rem;cursor:pointer;box-shadow:0 3px 0 var(--ink);}
+.daw__alert button{transition:transform .08s,box-shadow .08s,background .08s;}
+@media (hover:hover){
+  .daw__alert button:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--ink);background:#7aa3f5;}
+  .key:not(.on):hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink);filter:brightness(1.08);}
+}
+.daw__alert button:active{transform:translateY(3px);box-shadow:none;}
+.key:active{transform:translateY(4px) !important;box-shadow:0 0 0 var(--ink) !important;}
+
+@media (max-width:760px){
+  .daw{--hd:6.6rem;--th:4.2rem;}
+  .daw__win{border-radius:12px;box-shadow:5px 5px 0 var(--ink);}
+  .daw__file{font-size:.72rem;}
+  .daw__top{gap:.7rem;padding:.8rem;}
+  .daw__clock{order:-1;flex-basis:100%;justify-content:space-between;}
+  .daw__transport{flex:1;justify-content:space-between;}
+  .key{width:auto;flex:1;height:2.8rem;}
+  .daw__meters{display:none;}
+  .trk__hd{padding:.35rem .4rem;}
+  .trk__tag{padding:.3rem .4rem;border-radius:8px;}
+  .trk__name{font-size:.7rem;white-space:normal;line-height:1.05;}
+  .trk__sub{font-size:.54rem;}
+  .trk__lane{padding-right:.5rem;}
+  .clip{left:.4rem;border-radius:9px;}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the content</a>
+
+<header class="nav">
+  <a class="nav__mark" href="index.html" aria-label="Maurice Moynihan, home"><canvas class="mark" width="298" height="160" aria-hidden="true"></canvas></a>
+  <nav aria-label="Site">
+    <ul>
+      <li><a href="advertising.html">Advertising</a></li>
+      <li><a href="adnauseum.html">adnauseum.ai</a></li>
+      <li><a href="music.html" aria-current="true">Music</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav__hidden"><a href="index.html#cane-toad-golf" aria-label="Cane Toad Golf"><svg class="nav-icon" width="22" height="22" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M 29.35 3.23 C 29.98 3.17 30.48 3.22 30.91 3.37 C 31.35 3.52 31.69 3.84 31.97 4.12 C 32.25 4.41 32.40 4.62 32.58 5.10 C 32.75 5.58 32.88 6.57 33.02 7.01 C 33.16 7.46 32.86 7.25 33.44 7.78 C 34.02 8.32 35.71 9.57 36.49 10.23 C 37.26 10.90 37.66 11.32 38.07 11.79 C 38.47 12.25 38.54 12.31 38.94 13.00 C 39.33 13.69 40.01 15.18 40.44 15.94 C 40.87 16.71 41.04 16.96 41.50 17.58 C 41.96 18.20 42.58 19.02 43.20 19.67 C 43.82 20.32 44.62 20.87 45.22 21.47 C 45.81 22.08 45.76 21.75 46.77 23.29 C 47.77 24.84 50.04 28.69 51.24 30.75 C 52.43 32.82 53.20 33.86 53.94 35.68 C 54.66 37.50 55.21 40.54 55.60 41.67 C 56.00 42.79 55.56 41.83 56.31 42.42 C 57.06 43.00 59.28 44.47 60.10 45.15 C 60.93 45.84 61.02 46.08 61.27 46.49 C 61.53 46.90 61.53 46.99 61.65 47.62 C 61.77 48.24 61.96 49.48 62.00 50.24 C 62.04 51.00 62.03 51.65 61.86 52.17 C 61.68 52.69 61.49 52.99 60.96 53.36 C 60.42 53.74 59.08 54.17 58.63 54.42 C 58.18 54.67 57.97 54.15 58.27 54.85 C 58.58 55.54 60.07 57.81 60.46 58.58 C 60.84 59.35 60.60 59.23 60.55 59.47 C 60.51 59.70 60.34 59.91 60.18 60.00 C 60.02 60.09 59.90 60.13 59.60 60.01 C 59.31 59.89 58.71 59.43 58.40 59.28 C 58.09 59.14 57.94 59.13 57.73 59.15 C 57.54 59.17 57.45 59.19 57.20 59.40 C 56.95 59.61 56.48 60.21 56.22 60.40 C 55.96 60.60 55.96 60.69 55.65 60.58 C 55.33 60.48 54.82 59.88 54.34 59.79 C 53.86 59.69 53.31 60.06 52.78 60.02 C 52.25 59.98 51.87 59.67 51.14 59.53 C 50.41 59.41 49.20 59.13 48.42 59.23 C 47.62 59.34 46.93 59.97 46.41 60.17 C 45.90 60.37 46.35 60.39 45.33 60.43 C 44.31 60.48 41.88 60.38 40.26 60.44 C 38.64 60.49 36.80 60.87 35.62 60.77 C 34.45 60.67 34.42 59.96 33.19 59.85 C 31.96 59.74 29.33 60.27 28.24 60.10 C 27.16 59.94 27.48 59.11 26.66 58.84 C 25.84 58.56 24.25 58.60 23.31 58.46 C 22.36 58.32 21.45 58.02 21.01 57.96 C 20.57 57.90 20.74 57.91 20.66 58.10 C 20.58 58.29 20.60 58.90 20.52 59.11 C 20.43 59.34 20.56 59.40 20.13 59.43 C 19.71 59.45 18.88 59.27 17.95 59.26 C 17.03 59.25 15.49 59.22 14.60 59.37 C 13.71 59.52 13.47 60.12 12.63 60.13 C 11.79 60.15 11.13 59.55 9.55 59.46 C 7.98 59.37 4.39 59.58 3.21 59.58 C 2.02 59.58 2.67 59.53 2.47 59.46 C 2.28 59.38 2.13 59.27 2.05 59.12 C 1.98 58.96 1.95 58.72 2.00 58.54 C 2.05 58.36 1.96 58.24 2.34 58.05 C 2.71 57.85 3.87 57.56 4.26 57.37 C 4.65 57.17 4.66 57.41 4.68 56.87 C 4.71 56.34 4.47 55.22 4.41 54.15 C 4.36 53.08 4.29 51.74 4.35 50.46 C 4.41 49.18 4.60 47.69 4.77 46.47 C 4.93 45.25 5.10 44.19 5.35 43.15 C 5.60 42.12 5.75 41.42 6.27 40.26 C 6.78 39.10 7.89 37.80 8.43 36.21 C 8.98 34.62 9.06 32.30 9.53 30.72 C 10.00 29.14 11.01 27.57 11.26 26.73 C 11.51 25.89 11.30 26.15 11.04 25.69 C 10.78 25.23 10.17 24.63 9.71 23.96 C 9.25 23.29 8.65 22.37 8.30 21.67 C 7.96 20.98 7.75 20.31 7.65 19.78 C 7.54 19.24 7.60 18.99 7.66 18.47 C 7.73 17.95 7.70 17.69 8.04 16.65 C 8.37 15.60 9.42 13.10 9.67 12.20 C 9.93 11.30 9.76 11.80 9.57 11.24 C 9.37 10.69 8.67 9.41 8.50 8.86 C 8.32 8.32 8.45 8.28 8.50 7.97 C 8.56 7.66 8.51 7.60 8.82 7.03 C 9.12 6.46 9.92 5.07 10.34 4.56 C 10.76 4.05 10.81 4.04 11.34 3.97 C 11.87 3.90 12.69 3.88 13.51 4.12 C 14.34 4.35 15.54 5.14 16.31 5.39 C 17.08 5.64 17.40 5.66 18.15 5.64 C 18.90 5.62 19.82 5.34 20.80 5.28 C 21.79 5.21 23.02 5.52 24.09 5.26 C 25.15 5.00 26.31 4.07 27.19 3.73 C 28.06 3.39 28.74 3.29 29.35 3.23Z M 11.82 50.69 C 12.17 50.88 13.29 51.94 13.62 52.27 C 13.95 52.60 14.15 52.40 13.81 52.65 C 13.46 52.91 12.00 53.66 11.55 53.81 C 11.11 53.96 11.25 53.67 11.16 53.55 C 11.07 53.43 10.96 53.47 11.02 53.08 C 11.09 52.68 11.40 51.57 11.53 51.17 C 11.66 50.77 11.47 50.50 11.82 50.69Z"/></svg></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="content">
+  <section class="arch-head">
+    <h1>Music</h1>
+    <div class="pa" aria-hidden="true">
+      <img class="pa__img" src="assets/img/speaker/pa.webp" alt="" width="1200" height="375" decoding="async">
+      <img class="spk__cone" src="assets/img/speaker/pa-cone-1.webp" alt="" style="left:8.808%;top:63.983%;width:8.477%" decoding="async">
+      <img class="spk__cone" src="assets/img/speaker/pa-cone-2.webp" alt="" style="left:30.265%;top:62.924%;width:9.007%" decoding="async">
+      <img class="spk__cone" src="assets/img/speaker/pa-cone-3.webp" alt="" style="left:61.258%;top:61.441%;width:9.272%" decoding="async">
+      <img class="spk__cone" src="assets/img/speaker/pa-cone-4.webp" alt="" style="left:82.649%;top:61.017%;width:9.272%" decoding="async">
+    </div>
+  </section>
+
+  <section class="section daw-sec">
+    <p class="aw-head daw-lede"><a href="https://open.spotify.com/artist/0DeXkJRcBieuRAABS6ehpX" rel="noopener">One EP</a> down. Now I&rsquo;m making an album. There&rsquo;s no client and no deadline, which turns out to be the problem. Here&rsquo;s where it&rsquo;s&nbsp;at.</p>
+    <figure class="daw">
+      <div class="daw__win idle" id="daw">
+        <div class="daw__bar"><i></i><i></i><i></i><span class="daw__file">RHINELLA MARINA 2026 WIP</span></div>
+        <div class="daw__top">
+          <div class="daw__transport">
+            <button class="key" type="button" id="daw-rw" aria-label="Back to the start"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="2.5" height="10" fill="currentColor"/><path d="M14 3L5 8l9 5z" fill="currentColor"/></svg></button>
+            <button class="key" type="button" id="daw-stop" aria-label="Stop"><svg viewBox="0 0 16 16"><rect x="3" y="3" width="10" height="10" rx="1" fill="currentColor"/></svg></button>
+            <button class="key key--play" type="button" id="daw-play" aria-label="Play"><svg viewBox="0 0 16 16"><path d="M4 2.5l10 5.5-10 5.5z" fill="currentColor"/></svg></button>
+            <button class="key" type="button" id="daw-ff" aria-label="Forward ten seconds"><svg viewBox="0 0 16 16"><path d="M1 3l7 5-7 5zM8 3l7 5-7 5z" fill="currentColor"/></svg></button>
+            <button class="key key--rec" type="button" id="daw-rec" aria-label="Record"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="currentColor"/></svg></button>
+          </div>
+          <div class="daw__clock">
+            <span class="daw__time" id="daw-time">PRESS PLAY</span>
+            <span><small><b id="daw-now">Pick a track</b></small><small>of <span id="daw-len">0:00</span></small></span>
+          </div>
+          <div class="daw__meters" aria-hidden="true">
+            <span class="meter">VOL<span class="meter__blocks" id="daw-vu"></span></span>
+          </div>
+        </div>
+        <div id="daw-tracks"></div>
+        <div class="daw__alert" id="daw-alert" role="alertdialog" aria-modal="true" aria-labelledby="daw-alert-t">
+          <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3L38 36H2z" fill="#febc2e" stroke="#161511" stroke-width="2.5" stroke-linejoin="round"/><rect x="18.3" y="13" width="3.4" height="13" rx="1.5" fill="#161511"/><circle cx="20" cy="30.5" r="2" fill="#161511"/></svg>
+          <p id="daw-alert-t">Could not record. There is not enough free time on the selected drive. Free up some weekends and try again.<small>(&minus;9073)</small></p>
+          <div><button type="button" id="daw-ok">OK</button></div>
+        </div>
+      </div>
+    </figure>
+  </section>
+</main>
+
+
+
+
+<script>
+/* The demos. Peaks are measured from the audio at build time (RMS, 600
+   buckets, two digits each) so the waveforms draw before anything loads;
+   the mp3 only downloads when someone presses play. */
+(function(){
+  "use strict";
+  /* TRACKS:start (tools/music_tracks.py writes this) */
+  var TRACKS=[
+    {col:"#6E9BF2",name:"000",file:"000 04-05-2026",src:"assets/audio/01-000.mp3",dur:137.14,
+     pk:"000000000607417975877083657453906985747772637874857083637355906985728674698477927683617569947495737871728477917683637768927194778989727984967987708263928091808584728377928690818469898187868280839083907693858777948091808988839487958696778590958090858586839070806885636655907182717870557676816886667153886883718678757979837587636960896980808270627875807485686657887278748068627774787586677258877079808583598287877185747981898978909183808687867083727982839177909083848986866986868787898876768982848983807493698778967882789189949096594143461015687365586460736863655665507051727574607559736877706577587352655975797060716563667674587255738177738374808385907981728167816682728369798061777385488866868490718575869074838087719480827385738267808060767386509165838488738678848468777985739576897179778371598075827184676562907178767968568175827184687776938187848782598281847986647062918288808683638177847991737667938485818681578280828289877067939176788378809088888793778279828873768380828689909096808779939073779291889692937791778581988086868979789083848396888993959177798477828687918794868979929275788478838992888996828480929274789186899692927993859082968388828979788383848099948793818669756644140302010101010101"},
+    {col:"#62CC72",name:"Fleer Ultra",file:"Fleer Ultra 05-01-2026",src:"assets/audio/02-fleer-ultra.mp3",dur:188.91,
+     pk:"000001353757535246514860676749635964556356534442534863646256605460605553505861615457485150586151564450474546534948495351566156726858415559516265515054656267656151406059637259505257626471695850495856726156485061485970617063767885786782747673627172668069696780706370637572597565716672686967587573796865727564747370687569737966736463756374767271706655645968596161655763627061655856646264605665616360636561625538334447577368725873758281777242436855797175696978777983847363636270817472536776687683735749737476686661457179798983815674768087998078807879836775604582798384776371777680807472526877787978756377817579807682808790907472786373765372706575737059716662726475666575587266756869656374677171607467666976726876627175676957666959746970715647433946374836414043413945583545384444414644413839424142404957495740563848425258565367446147584256365342534553747982746549085740636736634874747072766229326458686766441366657089896956655569714569517575767381644245676172767648246867697367593159456176547246787675767770454769637471705937706972797960285846627147746482848076727977667269697561716779686271656666706562706864716868617359677566716668726270677768687061747277646369736174727466503331313029292929293029292927"},
+    {col:"#F4C431",name:"Big Boy",file:"Big Boy 25_05_2026",src:"assets/audio/03-big-boy.mp3",dur:190.25,
+     pk:"020303040605060639372032605047515531073721565956505151053745554751534818024243575851536648395560476060644534423355464651514040445746555154596159556253626373847564678681806969807042747477766477757754866879666081726166775959475278746373858274737771684084668366638171646285698062548378576973727563827675568172847367736570696981816056817974688875756467838049886779545870402743675952576640044318527164666554094759442426505904174745697470727663615777736663744427353961606058546755546764656367604742465865617071514950507060626968321536536865565770544957666167636057384946625556525676715179787464578170604183627969678474637087787864727667557262594633617370498974776250847154617972766471776960717975726575898045826972676558414236495049535368808173877169637150485059676365638079647763756970675751544661596057639189608767785168644750425861545450504749464756616769807461778683776983776668798174787084776464977979696879768078887979677681836992787471788576676684738467648583788088767678818684699580826466797779718670808177887469817382757275868270887982777676838074927287706085767676787173757680727275857779697674826497747969777877817091738767718275717387746973788680659962796872827469667867777174847469757375757065"},
+    {col:"#EE6363",name:"Monty",file:"Monty 10_10_26",src:"assets/audio/04-monty.mp3",dur:184.53,
+     pk:"283132372530293331362730313335392627576255635845755857685242665557685142685556685141675656665040715856705447715857695447715955705346757384868184938072786969807173787675788076878781847155736458757562798269796869847573837453717669978880908860788270808169858462817175797883848073817060766366797878787365796970797171827556727466787059766169868981838677838278848971927971827270817065796062808280828174788271888468787261807660836462765858877576969392907376908365887576857373837685978556928282908571937879888465968083928582957898998369736954756158796458786256796457766253736756685652706462716662747164716963767163756855777783888590908571877765806568807769766366746962736556786053716258756766746258716661776359746663837577827261686460727367766561727368776254737166726356756154706367756864786370736863786263736764746361755872767066725959716462756458756662756460766263746562726358706257686656756462756563736663746563776473878084919290867484908281908485868391848798999382937684877971897780828269957884868686907797958982889175897884829081937882859179907781969284868076788575897983818771887779838679927981919081877976788377827175788375887581788071827778797868737772738473857478798276887777768174847375738068747469"},
+    {col:"#AE8AF0",name:"Stranger Than Fishin'",file:"Stranger Than Fishin' 26-12-2025",src:"assets/audio/05-stranger-than-fishin.mp3",dur:111.11,
+     pk:"292014163221171615121921231918121212111217181810522819293228302620173929222626181716151413141828422626564626314041464326312727404233243436554131503734615138213236484226443326324743322831423822512824946453463029614443464338474340334039613835211830624827546458484944343539634440383831443027402731605347503041564436453845645546355551774833794632996959546661795345473938856959375448855254442345583245492842533554425545425542254342503527451730544121101433343226221925262524212728413153545756536761422841585135304341475850313641453847473353736147333843545245332834434032313638724035383334625526535156383034243538543732262829553234383024735930373738424146443435554038274240393845634749704540405948655746613934634938315046834542512028774027633133463739613642445539284846525536443025383832302832453924242424323429232727282836362925334136272634323529282835503632373429374246714633435545455050484330443846384032314547404545533336484039373937496143474746565134363923415445895150804926243147583638493231594440353028443733353437735034354539533923282531534334242322594227383840744947373626503824453533544739303542544037383432645337292628514438655242453432704112040201010101010101010101010001000000000000000000000000"},
+    {col:"#F2834A",name:"Factory Reset",file:"Factory Reset 20-08-25_2",src:"assets/audio/06-factory-reset.mp3",dur:147.49,
+     pk:"030813230905051014060606060631443226323326242628232526303124213749402939464846663833314345323027464532493555363356433342537960405756596661595972715360605266617368664963645354635659536056666055615069595768586051536458676561615649475566655553655366625658576877737671746768647775717457797583997066686369638873636569777468665767456768676548615451544457586263517263716669606271696870595642715165696446336155457371433445625269524637635372607349474978497484715445684156725657506970657469595863667870656661536354655656595950623568596652486565676359546862647759586251595266566256565646417253696558706467625754656568755543492657536049302722574742543554355053566148364669655757474753315951635037433550494058565859626567675962685863497469736869716170757071737860597172706475646375707168706961725978666865647064726561636362696766737167687771626962696275586150555954614554544749424657635448594656636868646767595352594755565864505648535554585462605563536363575139606066757288637167727373717661776073697577687980758180597279587371788464656174677472766475607870746861738081867868747862694841331518182224070504040306191823150821172315040407231524191618101918232306050404030621172415121918231202010000000000000000000000"},
+    {col:"#3CC2B2",name:"Out of Office",file:"Out of Office 21-07-2026",src:"assets/audio/07-out-of-office.mp3",dur:176.82,
+     pk:"263224353233413443384134364037424232679984929088909487869091909391909188869298878989918983918686949489909396829091928376767276697772658271757778767572698578728170767678706682708175728174727682807781757075706975737974797576818380618579788790788581757787758084868061676381877787677071777775848981807983756569818373809175786672727778697174808289868083828075817384757380767679827979816671827783778185827576807081777481757279877882837882837881787977807771827281726885827875808280827580787981758172837680805961776764646872686358685967665064638075668365685962807264557777807357827385928585869185829384847578898775758381929185898891867885868577818979847783838780736169707976738075635764736862677775716959666979796977776858677474646474668588818668767873787482798381709287926982857386928089888076917688878991706469818983927977797486708894959079808776737588678298778571757478908583708882838886636566666764646663606165636661575757588184838086868385778283898684847585776680797683838081867283807486827980817673798582898387828377858089858086808082727585828281838086817884838278858179787377858285848284888479858282878684817876807781857981888885828683898982847776767880828177848684888385869088848778837669480502010101"},
+    {col:"#F48DBB",name:"Rhinella Marina",file:"Rhinella Marina 03-08-25",src:"assets/audio/08-rhinella-marina.mp3",dur:110.53,
+     pk:"000000000000000000000000000000000101020230211821172124222221263826172514173217153033293822262620322818362220433132272735206339306545405054515574776778614949423330915430286260564656614943485956575954496668614135272241627292635983646885826857698068578967484863835246839991738561588070595147434947587342322537214668675245797745292459372732272637474133332938412917291920282631312027251832303344352443282331252842273236323936213326223534276943272522223237282616333349433337524139464249573837392424264837332534365363544455504667583734231917161816321310123029233025173029263029172013080606091425080605362818242115222219231833352111091113141514110921140905040711152119233025282423283429283229324326212622303321211923322727242427352932463339472723232637384471473134302927293455394143373938222421203134367242283328282430364136423835393421181413212322403022201916131726292226252422171517121317132452363127262425232321222022202021181917201819191719171817161915171807070707080807070707070707070606060605050606060606070708081009101012101110111010110911101110101005040405040404040304040303040304030303030404040404040404040404040404040404030304030403020202020101010101010100000000000000000000000000000000000000000000"}
+  ];
+  /* TRACKS:end */
+  var MAX=Math.max.apply(null,TRACKS.map(function(t){return t.dur;}))*1.04,BAR=4,GAP=3;
+  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function peaks(t){
+    if(t.pk){var o=new Float32Array(t.pk.length/2);for(var q=0;q<o.length;q++)o[q]=Math.pow(+t.pk.substr(q*2,2)/99,2);return o;}
+    var r=rng(t.seed),N=1400,out=new Float32Array(N),prev=0,i;
+    for(i=0;i<N;i++){
+      var s=i/N*t.dur,v;
+      if(t.off){var c=(s%9.5);v=c<0.6?(.6+.3*r())*Math.sin(c/0.6*Math.PI):.03;}
+      else{
+        var f=t.form,x=i/N*(f.length-1),k=Math.floor(x),u=x-k,
+            lv=f[k]+(f[Math.min(k+1,f.length-1)]-f[k])*(u*u*(3-2*u)),beat=(s*t.bpm/60)%1;
+        v=lv*(.5+.3*Math.exp(-beat*7)+.2*r());
+        v*=Math.min(1,s/1.2)*Math.min(1,(t.dur-s)/4);
+      }
+      prev=prev*.35+v*.65;out[i]=prev;
+    }
+    var mx=0;for(i=0;i<N;i++)mx=Math.max(mx,out[i]);
+    for(i=0;i<N;i++)out[i]=Math.pow(out[i]/mx,1.7);
+    return out;
+  }
+  function fmt(s,ms){var m=Math.floor(s/60),x=s-m*60;return m+":"+(x<10?"0":"")+(ms?x.toFixed(3):Math.floor(x));}
+
+  var host=document.getElementById("daw-tracks"),rows=[];
+  TRACKS.forEach(function(t){
+    var row=document.createElement("div");row.className="trk"+(t.off?" off":"");
+    row.style.setProperty("--c",t.col||"#5a5a62");
+    row.innerHTML='<div class="trk__hd"><span class="trk__tag"><span class="trk__name">'+t.name+'</span><span class="trk__sub">'+(t.off?'muted':fmt(t.dur))+'</span></span></div>'+
+      '<div class="trk__lane"><div class="clip" style="width:max(2.6rem,calc('+(t.dur/MAX*100)+'% - 1.6rem))"><span class="clip__name">'+t.file+'</span><canvas></canvas></div><span class="daw__head"></span></div>';
+    host.appendChild(row);
+    rows.push({t:t,el:row,cv:row.querySelector("canvas"),clip:row.querySelector(".clip"),head:row.querySelector(".daw__head"),pk:peaks(t)});
+  });
+
+  var vu=document.getElementById("daw-vu"),VU=12;vu.innerHTML=new Array(VU+1).join("<u></u>");var vus=vu.children;
+
+  var cur=null,pos=0,playing=false,last=0,clock=0,idle=true,win=document.getElementById("daw");
+  var au=new Audio(),pend=null;au.preload="none";
+  function seek(t){pos=t;if(au.readyState>0){pend=null;try{au.currentTime=t;}catch(e){pend=t;}}else pend=t;}
+  au.addEventListener("loadedmetadata",function(){if(pend!==null){var t=pend;pend=null;try{au.currentTime=t;}catch(e){}}});
+  au.addEventListener("ended",function(){var i=rows.indexOf(cur),nx=rows[i+1];if(nx&&!nx.t.off){select(nx,0);play();}else{pos=cur.t.dur;stop();}});
+  au.addEventListener("pause",function(){if(playing&&!au.ended){playing=false;ui();if(cur)draw(cur);meters();}});
+  win.addEventListener("click",wake,true);
+  function wake(){if(!idle)return;idle=false;win.classList.remove("idle");}
+  function draw(R){
+    var cv=R.cv,dpr=window.devicePixelRatio||1,w=cv.clientWidth,hh=cv.clientHeight;
+    if(!w||!hh)return;
+    if(cv.width!==Math.round(w*dpr)||cv.height!==Math.round(hh*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(hh*dpr);}
+    var c=cv.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,hh);
+    var sel=R===cur,mid=hh/2,played=sel?pos/R.t.dur*w:-1,n=Math.floor((w-6)/(BAR+GAP)),pk=R.pk;
+    for(var b=0;b<n;b++){
+      var x=3+b*(BAR+GAP),i0=Math.floor(x/w*pk.length),i1=Math.max(i0+1,Math.floor((x+BAR+GAP)/w*pk.length)),a=0;
+      for(var i=i0;i<i1&&i<pk.length;i++)a=Math.max(a,pk[i]);
+      if(sel&&playing){var d=Math.abs(x-played);if(d<60)a=Math.min(1,a*(1+.35*(1-d/60)*(.6+.4*Math.sin(clock*18+b))));}
+      var hgt=Math.max(3,a*(hh-8));
+      c.fillStyle=R.t.off?"#7a7a84":(sel&&x<played?"#fff":"#161511");
+      if(c.roundRect){c.beginPath();c.roundRect(x,mid-hgt/2,BAR,hgt,2);c.fill();}else c.fillRect(x,mid-hgt/2,BAR,hgt);
+    }
+    if(sel)R.head.style.left=(R.clip.offsetLeft+2.5+played)+"px";
+  }
+  function drawAll(){rows.forEach(draw);}
+  /* levels: a real analyser on the <audio> once someone has pressed play (it
+     has to be made inside a click or Safari keeps it muted); the measured peaks
+     stand in if the browser won't give us one */
+  var actx=null,an=null,bins=null,bass=0,high=0,bAvg=0,hAvg=0,
+      cones=document.querySelectorAll(".pa .spk__cone"),paEl=document.querySelector(".pa"),side=[{avg:0,k:0},{avg:0,k:0}];
+  function hookAudio(){
+    if(actx)return;
+    try{var AC=window.AudioContext||window.webkitAudioContext;actx=new AC();
+      var src=actx.createMediaElementSource(au);an=actx.createAnalyser();an.fftSize=1024;an.smoothingTimeConstant=.15;an.minDecibels=-90;an.maxDecibels=-10;
+      src.connect(an);an.connect(actx.destination);bins=new Uint8Array(an.frequencyBinCount);
+      // one analyser per side for the two wall speakers; they feed a muted gain so the graph keeps pulling them
+      try{var sp=actx.createChannelSplitter(2),mute=actx.createGain();mute.gain.value=0;src.connect(sp);
+        for(var c=0;c<2;c++){var a=actx.createAnalyser();a.fftSize=1024;a.smoothingTimeConstant=.15;a.minDecibels=-90;a.maxDecibels=-10;sp.connect(a,c);a.connect(mute);side[c].an=a;side[c].bins=new Uint8Array(a.frequencyBinCount);}
+        mute.connect(actx.destination);}catch(e){}
+    }catch(e){an=null;}
+  }
+  function meters(){
+    var lv=0,b=0,hi=0;
+    if(playing&&cur){
+      if(an&&actx.state==="running"){
+        an.getByteFrequencyData(bins);
+        for(var i=1;i<7;i++)b+=bins[i];b/=6*255;
+        for(i=40;i<160;i++)hi+=bins[i];hi/=120*255;
+        // mapped so a loud mix sits mid-meter and only its biggest hits reach red
+        lv=Math.min(1,Math.max(0,(b-.40)/.55)*.75+hi*.35+.03+(Math.random()-.5)*.05);
+      }else{var k=Math.floor(pos/cur.t.dur*cur.pk.length);lv=(cur.pk[Math.min(k,cur.pk.length-1)]||0)*(.75+.25*Math.random());b=lv*(.6+.4*Math.random());hi=lv*.5;}
+    }
+    for(var j=0;j<VU;j++){vus[j].className=j/VU<lv?(j>=VU-2?"r":j>=VU-4?"y":"g"):"";}
+    // fast attack, slower release, so the cone kicks and settles
+    // pump on the kick, not on loudness: bass above its own running average
+    bAvg=bAvg*.97+b*.03;hAvg=hAvg*.9+hi*.1;
+    var kick=Math.max(0,Math.min(1,(b-bAvg)*14)),fl=Math.max(0,Math.min(1,(hi-hAvg*.9)*9));
+    bass=kick>bass?kick:bass*.8;high=fl>high?fl:high*.75;
+    for(var c=0;c<2;c++){
+      var S=side[c],sb=b;
+      if(S.an&&playing&&actx.state==="running"){S.an.getByteFrequencyData(S.bins);sb=0;for(var m=1;m<7;m++)sb+=S.bins[m];sb/=6*255;}
+      // a kick is bass above its own running average, scaled by how loud the song really is,
+      // so a quiet song pumps gently and a loud one properly
+      var loud=Math.max(0,Math.min(1,(sb-.45)/.35));
+      S.avg=S.avg*.97+sb*.03;var sk=Math.max(0,Math.min(1,(sb-S.avg)*10))*loud;S.k=sk>S.k?sk:S.k*.8;
+      if(!playing){S.k=0;sb=0;}
+      S.sc="scale("+(1+loud*.025+S.k*.09).toFixed(3)+")";S.fl="brightness("+(1+S.k*.25).toFixed(3)+")";
+    }
+    // first half of the cones are the left box, second half the right
+    for(var q=0;q<cones.length;q++){var Q=side[q<cones.length/2?0:1];cones[q].style.transform=Q.sc;cones[q].style.filter=Q.fl;}
+    // the whole rig throbs a touch on the kick, scaled from the ceiling so the poles stay put
+    if(paEl)paEl.style.transform="scale("+(1+Math.max(side[0].k,side[1].k)*.0025).toFixed(4)+")";
+  }
+  function ui(){
+    document.getElementById("daw-time").textContent=idle?"PRESS PLAY":fmt(pos,1);
+    document.getElementById("daw-now").textContent=cur?cur.t.name:"Pick a track";
+    document.getElementById("daw-len").textContent=fmt(cur?cur.t.dur:0);
+    document.getElementById("daw-play").classList.toggle("on",playing);
+    rows.forEach(function(R){R.el.classList.toggle("sel",R===cur);R.el.classList.toggle("paused",R===cur&&!playing);});
+  }
+  function select(R,at){var old=cur;cur=R;pos=at||0;
+    if(old!==R){au.src=R.t.src;pend=null;}
+    seek(pos);
+    if(old)draw(old);draw(R);ui();}
+  function play(){wake();hookAudio();if(actx&&actx.state!=="running")actx.resume();if(!cur)select(rows[0],0);if(pos>=cur.t.dur-.05){pos=0;}
+    if(pend===null&&Math.abs(au.currentTime-pos)>.25)seek(pos);
+    var pr=au.play();if(pr&&pr.catch)pr.catch(function(){playing=false;ui();});
+    playing=true;last=performance.now();ui();requestAnimationFrame(tick);}
+  function stop(){playing=false;au.pause();ui();if(cur)draw(cur);meters();}
+  function tick(now){
+    if(!playing)return;
+    var dt=(now-last)/1000;clock+=dt;last=now;
+    if(au.readyState>0&&pend===null)pos=Math.min(au.currentTime,cur.t.dur);
+    draw(cur);ui();meters();requestAnimationFrame(tick);
+  }
+  rows.forEach(function(R){
+    R.el.addEventListener("click",function(e){
+      if(R.t.off){R.el.classList.remove("shake");void R.el.offsetWidth;R.el.classList.add("shake");return;}
+      var b=R.clip.getBoundingClientRect(),at=0;
+      if(e.target.closest(".clip"))at=Math.max(0,Math.min(1,(e.clientX-b.left)/b.width))*R.t.dur;
+      else if(R===cur&&playing){stop();return;}
+      select(R,at);play();
+    });
+  });
+  function press(id,fn){var b=document.getElementById(id);b.addEventListener("click",fn);}
+  press("daw-play",function(){playing?stop():play();});
+  press("daw-stop",function(){if(cur){stop();}});
+  press("daw-rw",function(){seek(0);if(cur)draw(cur);ui();});
+  press("daw-ff",function(){if(!cur)select(rows[0],0);seek(Math.min(cur.t.dur-.5,pos+10));draw(cur);ui();});
+  var alertBox=document.getElementById("daw-alert"),rec=document.getElementById("daw-rec");
+  press("daw-rec",function(){if(playing)stop();alertBox.classList.add("show");document.getElementById("daw-ok").focus();});
+  press("daw-ok",function(){alertBox.classList.remove("show");rec.focus();});
+  document.addEventListener("keydown",function(e){
+    if(e.code!=="Space"||/INPUT|TEXTAREA|BUTTON/.test(e.target.tagName))return;
+    var b=document.getElementById("daw").getBoundingClientRect();
+    if(b.bottom<0||b.top>innerHeight)return;
+    e.preventDefault();playing?stop():play();
+  });
+  window.addEventListener("resize",drawAll);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawAll);
+  drawAll();ui();meters();
+})();
+</script>
+
+<script src="mark.js?v=343e1ca6" defer></script>
+
+</body>
+</html>
